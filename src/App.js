@@ -51,6 +51,12 @@ const StyledBro = styled.span`
   color: lightgray;
 `;
 
+const GitHub = styled.a`
+  position: fixed;
+  top: 10px;
+  right: 10px;
+`;
+
 class App extends Component {
 
   state={
@@ -59,6 +65,10 @@ class App extends Component {
     shatter: false,
     mute: true,
     randomBroWord: "",
+  }
+
+  componentDidMount() {
+    this.poundIt(false);
   }
 
   playSound = () => {
@@ -72,9 +82,10 @@ class App extends Component {
     })
   }
 
-  poundIt =  () => {
+  poundIt =  (showWord) => {
     this.playSound().then(() => {
       this.shatter();
+      if (showWord) this.randomBroWord();
       this.setState({
         fistAnimation: "",
       }, () => {
@@ -87,7 +98,6 @@ class App extends Component {
 
 
   shatter = () => {
-    this.randomBroWord();
     this.setState(prevState => ({
       shatter: !prevState.shatter,
       appAnimation: headShakeAnimation,
@@ -115,6 +125,14 @@ class App extends Component {
           animation: `1.5s ${this.state.appAnimation}`,
         }}
       > 
+      <GitHub 
+        href="https://github.com/gojutin/bro-ha" 
+        target="_blank" 
+        rel="noopener"
+      >
+        <img src="github.png" alt="GitHub" height={30} />
+      </GitHub>
+
       { this.state.shatter &&
         <Image 
           height={90 + "%"}
