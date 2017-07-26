@@ -2,9 +2,13 @@
 BRO-HA!</h1>
 </span>
 
+##[bro-ha.com](https://bro-ha.com)
+
 ### Get your bro on.
 
-<h2 id="demo">Run locally</h2>
+#### Fist bump to see a random word from a BROcabulary of 19,000 and counting. 
+
+## Run locally
 
 ```sh
 $ git clone git@github.com:gojutin/styled-logs.git

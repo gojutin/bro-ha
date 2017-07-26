@@ -46,4 +46,6 @@ const brocab = broWords.map(word => {
   }
 })
 
+console.log(brocab.length)
+
 export default [...brocabulary, ...brocab];

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { pulse, headShake  } from 'react-animations';
-import brocab from './brocabulary';
+import brocab from '../brocabulary';
+
+import Title from './Title';
+import Shatter from './Shatter';
+import BroWord from './BroWord';
 
 const pulseAnimation = keyframes`${pulse}`;
 const headShakeAnimation = keyframes`${headShake}`;
@@ -13,48 +17,9 @@ const StyledApp = styled.div`
   height: 100%;
 `;
 
-const Title = styled.h1`
-  font-size: 3.8em;
-  font-family: 'Luckiest Guy', cursive;
-`;
-
-const BroWord = styled.h1`
-  font-size: 3em;
-  font-family: 'Titan One', cursive;
-  background: rgba(0,0,0,.1);
-  margin-top: 5%;
-  color: #ffd468;
-  overflow: auto;
-  @media only screen and (max-width: 500px) {
-    font-size: 2em;
-  }
-`;
-
-const Image = styled.img`
-    position: fixed;
-    left: 50%;
-    top: 50vh;
-    transform: translate(-50%, -50%);
-    z-index: 5000;
-`;
-
 const MuteButton = styled.div`
   cursor: pointer;
   font-size: 1em;
-`;
-
-const StyledHa = styled.span`
-  color: #ffd468;
-`;
-
-const StyledBro = styled.span`
-  color: lightgray;
-`;
-
-const GitHub = styled.a`
-  position: fixed;
-  top: 10px;
-  right: 10px;
 `;
 
 class App extends Component {
@@ -73,12 +38,13 @@ class App extends Component {
 
   playSound = () => {
     return new Promise((resolve) => {
-    if (!this.state.mute) {
       var snd = new Audio("punch.wav");
+      snd.load();
+      if (this.state.mute) {
+        snd.muted = true;
+      }
       const play = snd.play();
       resolve(play)
-    } else resolve();
-  
     })
   }
 
@@ -95,7 +61,6 @@ class App extends Component {
       })
     })
   }
-
 
   shatter = () => {
     this.setState(prevState => ({
@@ -125,28 +90,10 @@ class App extends Component {
           animation: `1.5s ${this.state.appAnimation}`,
         }}
       > 
-      <GitHub 
-        href="https://github.com/gojutin/bro-ha" 
-        target="_blank" 
-        rel="noopener"
-      >
-        <img src="github.png" alt="GitHub" height={30} />
-      </GitHub>
-
       { this.state.shatter &&
-        <Image 
-          height={90 + "%"}
-          src="shattered.png" 
-          alt="shattered screen" 
-          style={{
-            zIndex: 7000
-          }}
-        />
+          <Shatter />
       }
-        <Title>
-          <StyledBro>BRO</StyledBro>-
-          <StyledHa>HA!</StyledHa>
-        </Title>
+        <Title />
         <div>
           <img src="fist.png" 
             alt="fist"
@@ -154,7 +101,7 @@ class App extends Component {
             style={{
               cursor: "pointer", 
               animation: `.5s ${this.state.shatter ? this.state.fistAnimation: ""}`,
-              marginTop: 3 + "%",
+              marginTop: 1 + "%",
             }} 
           />
         </div>
@@ -172,7 +119,9 @@ class App extends Component {
         {this.state.mute ? "play sound" : "mute sound"}
          </MuteButton>
         <br />
-        <BroWord style={{zIndex: 10000}}>{this.state.randomBroWord}</BroWord>
+        <BroWord randomBroWord={this.state.randomBroWord}/>
+        { !this.state.randomBroWord &&
+            <h3>A brocabulary of {brocab.length} and counting</h3>        }
       </StyledApp>
     );
   }
