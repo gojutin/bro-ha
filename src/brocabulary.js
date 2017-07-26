@@ -38,14 +38,16 @@ const brocabulary = [
 
 var broWords = words.filter(word => !!word.match(/ro/));
 
-const brocab = broWords.map(word => {
-  if ( word.match(/^(.*?)ro/)) {
-    return word.replace(/^(.*?)ro/, "BRO")
+const newArray = [];
+
+broWords.map(word => {
+  if (word.match(/bro/) || word.length < 5) {
+    return false;
+  } else if (word.match(/(.*)ro/)) {
+    return newArray.push(word.replace(/(.*)ro/, "BRO"));
   } else {
-    return word.replace(/ro/, "BRO")
+    return newArray.push(word.replace(/ro/, "BRO"))
   }
 })
 
-console.log(brocab.length)
-
-export default [...brocabulary, ...brocab];
+export default [...brocabulary, ...newArray];

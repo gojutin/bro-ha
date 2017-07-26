@@ -1,4 +1,4 @@
-<span><h1><img height=20 src="%PUBLIC_URL%/fist.png"/> 
+<span><h1><img height=20 src="https://drive.google.com/uc?id=0B55pP6B9y0d9QnlnSVdSNmtlZHc"/> 
 BRO-HA!</h1>
 </span>
 
@@ -6,7 +6,7 @@ BRO-HA!</h1>
 
 ### Get your bro on.
 
-#### Fist bump to see a random word from a BROcabulary of 19,000 and counting. 
+#### Fist bump to see a random word from a brocabulary of 19,000 and counting. 
 
 ## Run locally
 

@@ -11,8 +11,8 @@ const pulseAnimation = keyframes`${pulse}`;
 const headShakeAnimation = keyframes`${headShake}`;
 
 const StyledApp = styled.div`
-  padding: 20px;
-  padding-top: 50px;
+  padding: 10px;
+  padding-top: 40px;
   text-align: center;
   height: 100%;
 `;
@@ -121,7 +121,8 @@ class App extends Component {
         <br />
         <BroWord randomBroWord={this.state.randomBroWord}/>
         { !this.state.randomBroWord &&
-            <h3>A brocabulary of {brocab.length} and counting</h3>        }
+            <h3>A brocabulary of {brocab.length} and counting</h3>        
+        }
       </StyledApp>
     );
   }
