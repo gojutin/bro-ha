@@ -1,8 +1,8 @@
-<span><h1><img height=20 src="fist.png"/> 
+<span><h1><img height=20 src="%PUBLIC_URL%/fist.png"/> 
 BRO-HA!</h1>
 </span>
 
-##[bro-ha.com](https://bro-ha.com)
+## [bro-ha.com](https://bro-ha.com)
 
 ### Get your bro on.
 
