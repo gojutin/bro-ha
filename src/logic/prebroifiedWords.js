@@ -1,13 +1,11 @@
-var words = require("an-array-of-english-words")
-
-const brocabulary = [
+export default [
   `BROtato Chip`,
   "BROkémon",
   "Hulk BROgan",
   "Tony BROmo",
   "Edgar Allen BRO",
   "BROan of Arc",
-  "Dunkin’ BROnaughts",
+  "Dunkin’ BROnuts",
   "BROklahoma",
   "BRO hard or BRO home",
   "BROhemian Rhapsody",
@@ -35,19 +33,3 @@ const brocabulary = [
   "BROgrammer",
   "BROtastic!",
 ];
-
-var broWords = words.filter(word => !!word.match(/ro/));
-
-const newArray = [];
-
-broWords.map(word => {
-  if (word.match(/bro/) || word.length < 5) {
-    return false;
-  } else if (word.match(/(.*)ro/)) {
-    return newArray.push(word.replace(/(.*)ro/, "BRO"));
-  } else {
-    return newArray.push(word.replace(/ro/, "BRO"))
-  }
-})
-
-export default [...brocabulary, ...newArray];

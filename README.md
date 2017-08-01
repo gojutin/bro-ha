@@ -6,13 +6,11 @@ BRO-HA!</h1>
 
 ### Get your bro on.
 
-#### Fist bump to see a random word from a brocabulary of 19,000 and counting. 
-
 ## Run locally
 
 ```sh
-$ git clone git@github.com:gojutin/styled-logs.git
-$ cd styled-logs/demo
+$ git clone git@github.com:gojutin/bro-ha.git
+$ cd bro-ha
 $ yarn install (or npm install)
 $ yarn start (or npm start)
 ```

@@ -2,14 +2,15 @@
   "name": "bro-ha!",
   "version": "0.1.0",
   "private": false,
+  "license": "MIT",
   "devDependencies": {
     "react-scripts": "1.0.10"
   },
   "dependencies": {
     "an-array-of-english-words": "^1.2.0",
-    "react": "^15.6.1",
+    "react": "next",
     "react-animations": "^0.1.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "next",
     "styled-components": "^2.1.1"
   },
   "scripts": {
